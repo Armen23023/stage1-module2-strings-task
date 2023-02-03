@@ -15,10 +15,14 @@ public class StringSplitter {
      * @return List of substrings
      */
     public List<String> splitByDelimiters(String source, Collection<String> delimiters) {
-
-        List<String> list = new ArrayList();
-        while (delimiters.iterator().hasNext()){
-            StringTokenizer stringTokenizer = new StringTokenizer(source,delimiters.stream().iterator().next());
+        String s="";
+        ArrayList<String> arrayList = new ArrayList<>(delimiters);
+        for (int i = 0; i < arrayList.size(); i++) {
+            s = s + arrayList.get(i);
+        }
+        List list = new ArrayList<>();
+        StringTokenizer stringTokenizer = new StringTokenizer(source,s);
+        while (stringTokenizer.hasMoreTokens()){
             list.add(stringTokenizer.nextToken());
         }
         return list;

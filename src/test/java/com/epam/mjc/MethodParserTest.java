@@ -1,6 +1,7 @@
 package com.epam.mjc;
 
 import junit.framework.TestCase;
+import org.jetbrains.annotations.NotNull;
 import org.junit.Test;
 
 public class MethodParserTest extends TestCase {
@@ -39,7 +40,7 @@ public class MethodParserTest extends TestCase {
         assertEquals(signature.getArguments().size(), 0);
     }
 
-    private void assertArgument(MethodSignature.Argument argument, String type, String name) {
+    private void assertArgument(MethodSignature.@NotNull Argument argument, String type, String name) {
         assertEquals(argument.getType(), type);
         assertEquals(argument.getName(), name);
     }
